@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "title": "Derecho de Familia",
+        "description": "Divorcios, División de bienes, Convenio regulador, Cuota alimentaria, Cuidado personal, Régimen de comunicación."
+    },
+    {
+        "id": 2,
+        "title": "Sucesiones",
+        "description": "Declaratoria de Herederos, Denuncia de bienes, Partición de herencia, Negociación de convenios."
+    },
+    {
+        "id": 3,
+        "title": "Daños y Perjuicios",
+        "description": "Accidentes de tránsito, Incumplimientos de contratos, Daños derivados de la construcción, Reclamos judiciales y extrajudiciales."
+    },
+    {
+        "id": 4,
+        "title": "Derecho Laboral",
+        "description": "Despidos, Liquidación Final, Reclamos laborales e Indemnizaciones."
+    },
+    {
+        "id": 5,
+        "title": "Derecho Previsional",
+        "description": "Jubilaciones, Pensiones, Reajustes."
+    },
+    {
+        "id": 6,
+        "title": "Contratos",
+        "description": "Confección de contratos de locación, compraventa, cesión, permuta, leasing."
+    }
+]
