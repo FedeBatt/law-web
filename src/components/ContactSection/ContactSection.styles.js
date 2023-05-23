@@ -3,6 +3,10 @@ import styled from "styled-components";
 export const ContactContainer = styled.div`
     display: flex;
     height: 100vh;
+    
+    @media screen and (max-width: 375px) {
+        transform: scale(0.85);
+    }
 `;
 
 export const ContactWrapper = styled.div`

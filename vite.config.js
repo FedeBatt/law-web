@@ -8,5 +8,5 @@ export default defineConfig({
         build: "vite build",
         preview: "vite preview --port 8080",
     },
-    base: '/'
+    base: '/law-web'
 });
