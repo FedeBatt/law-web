@@ -164,6 +164,10 @@ Error generating stack: `+o.message+`
     margin-left: auto;
     padding: 0 24px;
     justify-content: center;
+
+    @media screen and (max-width: 375px) {
+        transform: scale(0.85);
+    }
 `,A1=I.div`
     display: flex;
     align-items: center;
@@ -713,6 +717,10 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 `;const Z2=({isOpen:e,toggle:t})=>me(Y2,{isOpen:e,children:[M(G2,{onClick:t,children:M(X2,{})}),M(K2,{children:me(q2,{children:[M(qi,{onClick:t,to:"about",children:"Estudio"}),M(qi,{onClick:t,to:"skills",children:"Acerca de"}),M(qi,{onClick:t,to:"projects",children:"Áreas"}),M(qi,{onClick:t,to:"contact",children:"Contacto"})]})})]}),J2=I.div`
     display: flex;
     height: 100vh;
+    
+    @media screen and (max-width: 375px) {
+        transform: scale(0.85);
+    }
 `,ex=I.div`
     display: flex;
     z-index: 1;
