@@ -806,9 +806,11 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     font-size: 32px;
     color: #101522;
     margin-bottom: 8px;
+    text-align: center;
 `,cx=T.p`
     font-size: 24px;
     color: #101522;
+    text-align: center;
 `,fx="/law-web/assets/undraw-contact-e1f21391.svg",dx=T.button`
     border-radius: 50px;
     background-color: ${({$primary:e})=>e?"#101522":"#010606"};
@@ -826,8 +828,8 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     width: 100%;
     &:hover {
         transition: all 0.3s ease-in-out;
-        background-color: ${({$primary:e})=>e?"#fff":"#01BF71"};
-        color: #000;
+        background-color: ${({$primary:e,$disabled:t})=>e&&!t&&"#fff"};
+        color: ${({$primary:e,$disabled:t})=>e&&!t&&"#000"};
     }
 `,px=({children:e,...t})=>M(dx,{...t,children:e}),hx=T.div`
   z-index: 99;
@@ -851,4 +853,8 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   background-color: #fff;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-`,mx=({isOpen:e,children:t})=>M(hx,{isOpen:e,children:M(vx,{children:t})}),gx="/law-web/assets/mailSuccess-0696e330.svg",yx=({id:e})=>{const t={name:"",email:"",phoneNumber:"",message:""},[n,r]=j.useState(t),[i,o]=j.useState({}),[l,a]=j.useState(!1),s=(p,c)=>{r({...n,[p]:c})},u=async p=>{try{a(!0),p.preventDefault(),(await fetch("http://localhost:3000/contact",{method:"POST",headers:{"Content-Type":"Application/json;charset=utf-8"},body:JSON.stringify(n)})).status===200&&o({success:!0,message:"Mensaje enviado con éxito.",subMessage:"Nos pondremos en contacto contigo en breve.",modalOpen:!0})}catch{o({success:!1,message:"Ups! Algo salió mal, intentalo más tarde."})}finally{r(t),a(!1),setTimeout(()=>{o({success:!1,message:"",subMessage:"",modalOpen:!1})},4e3)}};return ce(J2,{id:e,children:[ce(ex,{children:[ce(tx,{children:[M(rx,{children:"Contactame"}),ce(ix,{onSubmit:u,children:[M(ma,{type:"text",placeholder:"Nombre",name:"name",autoComplete:"new-asd",value:n.name,onChange:p=>s("name",p.target.value),required:!0}),M(ma,{type:"email",placeholder:"Email",name:"email",autoComplete:"new-password",value:n.email,onChange:p=>s("email",p.target.value),required:!0}),M(ma,{placeholder:"Número de celular",name:"phoneNumber",autoComplete:"new-passwo",value:n.phoneNumber,onChange:p=>s("phoneNumber",p.target.value),required:!0}),M(ox,{cols:30,rows:10,placeholder:"Aquí deje su mensaje...",value:n.message,onChange:p=>s("message",p.target.value),required:!0}),M(px,{$primary:!0,onClick:u,children:l?"Enviando...":"Enviar"})]})]}),M(nx,{children:M(lx,{children:M(ax,{src:fx,alt:"image"})})})]}),ce(mx,{isOpen:i.modalOpen,children:[M(sx,{src:gx}),M(ux,{children:"Mensaje enviado con éxito."}),M(cx,{children:"Nos pondremos en contacto contigo pronto."})]})]})},wx=()=>{const[e,t]=j.useState(!1),n=()=>{t(!e)};return ce(Dv,{children:[M(Z2,{isOpen:e,toggle:n}),M(yS,{toggle:n}),M(cS,{}),M(_f,{...$1}),M(_f,{...z1}),M(Q2,{id:"areas"}),M(yx,{id:"contact"}),M(N1,{id:"footer"})]})};function Sx(){return M(g0,{children:M(wx,{})})}ya.createRoot(document.getElementById("root")).render(M(U.StrictMode,{children:M(Sx,{})}));
+
+  @media screen and (max-width: 768px) {
+    transform: scale(0.9)
+  }
+`,mx=({isOpen:e,children:t})=>M(hx,{isOpen:e,children:M(vx,{children:t})}),gx="/law-web/assets/mailSuccess-0696e330.svg",yx=({id:e})=>{const t={name:"",email:"",phoneNumber:"",message:""},[n,r]=j.useState(t),[i,o]=j.useState({}),[l,a]=j.useState(!1),s=(p,c)=>{r({...n,[p]:c})},u=async p=>{try{a(!0),p.preventDefault(),(await fetch("http://localhost:3000/contact",{method:"POST",headers:{"Content-Type":"Application/json;charset=utf-8"},body:JSON.stringify(n)})).status===200&&o({success:!0,message:"Mensaje enviado con éxito.",subMessage:"Nos pondremos en contacto contigo en breve.",modalOpen:!0})}catch{o({success:!1,message:"Ups! Algo salió mal, intentalo más tarde."})}finally{r(t),a(!1),setTimeout(()=>{o({success:!1,message:"",subMessage:"",modalOpen:!1})},4e3)}};return ce(J2,{id:e,children:[ce(ex,{children:[ce(tx,{children:[M(rx,{children:"Contactame"}),ce(ix,{onSubmit:u,children:[M(ma,{type:"text",placeholder:"Nombre",name:"name",autoComplete:"new-asd",value:n.name,onChange:p=>s("name",p.target.value),required:!0}),M(ma,{type:"email",placeholder:"Email",name:"email",autoComplete:"new-password",value:n.email,onChange:p=>s("email",p.target.value),required:!0}),M(ma,{placeholder:"Número de celular",name:"phoneNumber",autoComplete:"new-passwo",value:n.phoneNumber,onChange:p=>s("phoneNumber",p.target.value),required:!0}),M(ox,{cols:30,rows:10,placeholder:"Aquí deje su mensaje...",value:n.message,onChange:p=>s("message",p.target.value),required:!0}),M(px,{$primary:!0,$disabled:l,onClick:u,children:l?"Enviando...":"Enviar"})]})]}),M(nx,{children:M(lx,{children:M(ax,{src:fx,alt:"image"})})})]}),ce(mx,{isOpen:i.modalOpen,children:[M(sx,{src:gx}),M(ux,{children:"Mensaje enviado con éxito."}),M(cx,{children:"Nos pondremos en contacto contigo pronto."})]})]})},wx=()=>{const[e,t]=j.useState(!1),n=()=>{t(!e)};return ce(Dv,{children:[M(Z2,{isOpen:e,toggle:n}),M(yS,{toggle:n}),M(cS,{}),M(_f,{...$1}),M(_f,{...z1}),M(Q2,{id:"areas"}),M(yx,{id:"contact"}),M(N1,{id:"footer"})]})};function Sx(){return M(g0,{children:M(wx,{})})}ya.createRoot(document.getElementById("root")).render(M(U.StrictMode,{children:M(Sx,{})}));
