@@ -10,11 +10,17 @@ import {
     ImageCol,
     ImageContainer,
     Input,
+    ModalImage,
+    ModalMessage,
+    ModalSubMessage,
     TextAreaInput,
 } from "./ContactSection.styles";
 
 import image from "../../assets/undraw-contact.svg";
 import SubmitButton from "../SubmitButton/SubmitButton";
+import Modal from "../Modal/Modal";
+
+import mailSuccess from "../../assets/mailSuccess.svg";
 
 const ContactSection = ({ id }) => {
     const formInitialState = {
@@ -38,28 +44,35 @@ const ContactSection = ({ id }) => {
         try {
             setIsFetching(true);
             event.preventDefault();
-            let response = await fetch("http://localhost:3000/contact", {
+            let response = await fetch(`${import.meta.env.VITE_URL}/contact`, {
                 method: "POST",
                 headers: { "Content-Type": "Application/json;charset=utf-8" },
                 body: JSON.stringify(formDetails),
             });
-            let result = response.json();
-            setFormDetails(formInitialState);
-            if (result.code === 200) {
+            if (response.status === 200) {
                 setStatus({
                     success: true,
                     message: "Mensaje enviado con éxito.",
-                });
-            } else {
-                setStatus({
-                    success: false,
-                    message: "Ups! Algo salió mal, intentalo más tarde.",
+                    subMessage: "Nos pondremos en contacto contigo en breve.",
+                    modalOpen: true
                 });
             }
         } catch (err) {
-            console.log(err);
+            setStatus({
+                success: false,
+                message: "Ups! Algo salió mal, intentalo más tarde.",
+            });
         } finally {
+            setFormDetails(formInitialState);
             setIsFetching(false);
+            setTimeout(() => {
+                setStatus({
+                    success: false,
+                    message: "",
+                    subMessage: "",
+                    modalOpen: false
+                });
+            }, 4000);
         }
     };
 
@@ -71,7 +84,7 @@ const ContactSection = ({ id }) => {
                     <Form onSubmit={handleSubmit}>
                         <Input
                             type="text"
-                            placeholder="nombre"
+                            placeholder="Nombre"
                             name="name"
                             autoComplete="new-asd"
                             value={formDetails.name}
@@ -82,7 +95,7 @@ const ContactSection = ({ id }) => {
                         />
                         <Input
                             type="email"
-                            placeholder="email"
+                            placeholder="Email"
                             name="email"
                             autoComplete="new-password"
                             value={formDetails.email}
@@ -92,7 +105,7 @@ const ContactSection = ({ id }) => {
                             required
                         />
                         <Input
-                            placeholder="número de celular"
+                            placeholder="Número de celular"
                             name="phoneNumber"
                             autoComplete="new-passwo"
                             value={formDetails.phoneNumber}
@@ -122,6 +135,11 @@ const ContactSection = ({ id }) => {
                     </ImageContainer>
                 </ImageCol>
             </ContactWrapper>
+            <Modal isOpen={status.modalOpen}>
+                <ModalImage src={mailSuccess} />
+                <ModalMessage>Mensaje enviado con éxito.</ModalMessage>
+                <ModalSubMessage>Nos pondremos en contacto contigo pronto.</ModalSubMessage>
+            </Modal>
         </ContactContainer>
     );
 };

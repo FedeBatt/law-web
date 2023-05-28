@@ -8,7 +8,7 @@ export const SubmitButton = styled.button`
     color: ${({ $dark }) => ($dark ? "#010606" : "#fff")};
     font-size: ${({ $fontBig }) => ($fontBig ? "20px" : "16px")};
     outline: none;
-    border: none;
+    border: 1px solid #101522;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -18,6 +18,6 @@ export const SubmitButton = styled.button`
     &:hover {
         transition: all 0.3s ease-in-out;
         background-color: ${({ $primary }) => ($primary ? "#fff" : "#01BF71")};
-        color: #fff;
+        color: #000;
     }
 `;

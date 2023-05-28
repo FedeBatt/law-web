@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const ContactContainer = styled.div`
     display: flex;
     height: 100vh;
-    
+
     @media screen and (max-width: 375px) {
         transform: scale(0.85);
     }
@@ -84,6 +84,7 @@ export const TextAreaInput = styled.textarea`
     margin: 12px 0;
     font-size: 14px;
     border-radius: 12px;
+    resize: none;
 
     &&::placeholder {
         color: #101522;
@@ -103,3 +104,19 @@ export const Image = styled.img`
         margin: 0 0 10px 0;
     }
 `;
+
+export const ModalImage = styled.img`
+    width: 300px;
+    margin-bottom: 32px
+`;
+
+export const ModalMessage = styled.p`
+    font-size: 32px;
+    color: #101522;
+    margin-bottom: 8px;
+`
+
+export const ModalSubMessage = styled.p`
+    font-size: 24px;
+    color: #101522;
+`

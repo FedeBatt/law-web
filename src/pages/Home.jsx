@@ -22,7 +22,7 @@ const Home = () => {
             <MainContent />
             <InfoSection {...homeObjOne} />
             <InfoSection {...homeObjTwo} />
-            <Projects id="projects" />
+            <Projects id="areas" />
             <ContactSection id="contact" />
             <Footer id="footer" />
         </>
