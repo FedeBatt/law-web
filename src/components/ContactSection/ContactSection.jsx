@@ -124,7 +124,7 @@ const ContactSection = ({ id }) => {
                             }
                             required
                         />
-                        <SubmitButton $primary onClick={handleSubmit}>
+                        <SubmitButton $primary $disabled={isFetching} onClick={handleSubmit}>
                             {isFetching ? "Enviando..." : "Enviar"}
                         </SubmitButton>
                     </Form>

@@ -17,7 +17,7 @@ export const SubmitButton = styled.button`
     width: 100%;
     &:hover {
         transition: all 0.3s ease-in-out;
-        background-color: ${({ $primary }) => ($primary ? "#fff" : "#01BF71")};
-        color: #000;
+        background-color: ${({ $primary, $disabled }) => ($primary && !$disabled && "#fff")};
+        color: ${({ $primary, $disabled }) => ($primary && !$disabled && "#000")};
     }
 `;

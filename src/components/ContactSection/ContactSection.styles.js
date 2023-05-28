@@ -114,9 +114,11 @@ export const ModalMessage = styled.p`
     font-size: 32px;
     color: #101522;
     margin-bottom: 8px;
+    text-align: center;
 `
 
 export const ModalSubMessage = styled.p`
     font-size: 24px;
     color: #101522;
+    text-align: center;
 `

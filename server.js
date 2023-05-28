@@ -36,7 +36,7 @@ router.post("/contact", (req, res) => {
     const mail = {
         from: name,
         to: process.env.VITE_EMAIL_USER,
-        subject: "Hola! te contacto a través de tu Portfolio web",
+        subject: "Hola! te contacto a través de tu web",
         html: `<p>Name: ${name}</p>
            <p>Email: ${email}</p>
            <p>Phone: ${phone}</p>
