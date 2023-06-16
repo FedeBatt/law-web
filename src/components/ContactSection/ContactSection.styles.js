@@ -1,9 +1,9 @@
 import styled from "styled-components";
+import { FaGithub, FaLinkedin, FaEnvelope, FaWhatsapp, FaInstagram } from "react-icons/fa";
 
 export const ContactContainer = styled.div`
     display: flex;
     height: 100vh;
-
     @media screen and (max-width: 375px) {
         transform: scale(0.85);
     }
@@ -51,45 +51,44 @@ export const ImageCol = styled.div`
 `;
 
 export const ConctactTitle = styled.p`
-    font-size: 45px;
+    font-size: 42px;
+    font-weight: bold;
     color: #101522;
+    margin-bottom: 12px;
 `;
 
-export const Form = styled.footer`
-    margin-top: 16px;
+
+export const ConctactDescription = styled.p`
+    font-size: 28px;
+    color: #A9927D;
+    margin-bottom: 24px;
 `;
 
-export const Input = styled.input`
-    width: 100%;
-    padding: 16px;
-    border: none;
-    border-bottom: 1px solid #CEB69F;
-    outline: none;
-    color: #101522;
-    margin: 12px 0;
-    font-size: 14px;
-    border-radius: 12px;
 
-    &&::placeholder {
-        color: #101522;
+export const SocialMediaContainer = styled.button`
+    align-items: center;
+    border: 1px solid #101522;
+    border-radius: 8px;
+    background-color: #101522;      
+    display: flex;
+    padding: 16px 24px;
+    margin: 12px 0; 
+    width: 55%;
+    transition: all 0.3s ease-in-out;
+    color: #fff;      
+    // justify-content: center;
+
+    &:hover {
+        cursor: pointer;
+        color: #101522;      
+        background-color: #CEB69F;  
+        border: 1px solid #CEB69F;
     }
-`;
+`
 
-export const TextAreaInput = styled.textarea`
-    width: 100%;
-    padding: 16px;
-    border: 1px solid #CEB69F;
-    outline: none;
-    color: #101522;
-    margin: 12px 0;
-    font-size: 14px;
-    border-radius: 12px;
-    resize: none;
-
-    &&::placeholder {
-        color: #101522;
-    }
-`;
+export const SocialMediaTitle = styled.p`
+    font-size: 22px;
+`
 
 export const ImageContainer = styled.div`
     max-width: 555px;
@@ -105,20 +104,30 @@ export const Image = styled.img`
     }
 `;
 
-export const ModalImage = styled.img`
-    width: 300px;
-    margin-bottom: 32px
+export const IconLinkedin = styled(FaLinkedin)`
+    font-size: 32px;
+    margin-right: 12px;
+    opacity: ${({ $isHovered }) => ($isHovered ? "#01bf71" : "#fff")};
+    transition: ${({ $isHovered }) => $isHovered && "0.3s ease-out"};
 `;
 
-export const ModalMessage = styled.p`
+export const IconWhatsapp = styled(FaWhatsapp)`
     font-size: 32px;
-    color: #101522;
-    margin-bottom: 8px;
-    text-align: center;
-`
+    margin-right: 12px; 
+    opacity: ${({ $isGitHovered }) => ($isGitHovered ? "#01bf71" : "#fff")};
+    transition: ${({ $isGitHovered }) => $isGitHovered && "0.3s ease-out"};
+`;
 
-export const ModalSubMessage = styled.p`
-    font-size: 24px;
-    color: #101522;
-    text-align: center;
-`
+export const IconInstagram = styled(FaInstagram)`
+    font-size: 32px;
+    margin-right: 12px; 
+    opacity: ${({ $isGitHovered }) => ($isGitHovered ? "#01bf71" : "#fff")};
+    transition: ${({ $isGitHovered }) => $isGitHovered && "0.3s ease-out"};
+`;
+
+export const IconGmail = styled(FaEnvelope)`
+    font-size: 32px;
+    margin-right: 12px; 
+    opacity: ${({ $isGitHovered }) => ($isGitHovered ? "#01bf71" : "#fff")};
+    transition: ${({ $isGitHovered }) => $isGitHovered && "0.3s ease-out"};
+`;

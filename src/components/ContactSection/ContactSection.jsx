@@ -1,133 +1,68 @@
 import React, { useState } from "react";
 
 import {
+    ConctactDescription,
     ConctactTitle,
     ContactCol,
     ContactContainer,
     ContactWrapper,
-    Form,
+    IconGmail,
+    IconInstagram,
+    IconLinkedin,
+    IconWhatsapp,
     Image,
     ImageCol,
     ImageContainer,
-    Input,
-    ModalImage,
-    ModalMessage,
-    ModalSubMessage,
-    TextAreaInput,
+    SocialMediaContainer,
+    SocialMediaTitle,
 } from "./ContactSection.styles";
 
 import image from "../../assets/undraw-contact.svg";
-import SubmitButton from "../SubmitButton/SubmitButton";
-import Modal from "../Modal/Modal";
 
-import mailSuccess from "../../assets/mailSuccess.svg";
+export const SOCIAL_MEDIA = [
+    {
+        title: 'Gmail',
+        icon: <IconGmail />,
+        url: `https://mail.google.com/mail/u/0/?view=cm&fs=1&to=${import.meta.env.VITE_EMAIL_USER}&su=${encodeURIComponent('Consulta juridica a traves de la web')}`,
+    },
+    {
+        title: 'Whatsapp',
+        icon: <IconWhatsapp />,
+        url: 'https://wa.link/bopulq'
+    },
+    {
+        title: 'Linkedin',
+        icon: <IconLinkedin />,
+        url: 'https://www.linkedin.com/in/florencia-agustina-formini-832047211/',
+    },
+    {
+        title: 'Instagram',
+        icon: <IconInstagram />,
+        url: 'https://www.instagram.com/abogada.formini/?igshid=MmJiY2I4NDBkZg%3D%3D'
+    },
+    
+]
 
 const ContactSection = ({ id }) => {
-    const formInitialState = {
-        name: "",
-        email: "",
-        phoneNumber: "",
-        message: "",
-    };
-    const [formDetails, setFormDetails] = useState(formInitialState);
-    const [status, setStatus] = useState({});
-    const [isFetching, setIsFetching] = useState(false);
 
-    const onFormUpdate = (category, value) => {
-        setFormDetails({
-            ...formDetails,
-            [category]: value,
-        });
-    };
-
-    const handleSubmit = async (event) => {
-        try {
-            setIsFetching(true);
-            event.preventDefault();
-            let response = await fetch(`${import.meta.env.VITE_URL}/contact`, {
-                method: "POST",
-                headers: { "Content-Type": "Application/json;charset=utf-8" },
-                body: JSON.stringify(formDetails),
-            });
-            if (response.status === 200) {
-                setStatus({
-                    success: true,
-                    message: "Mensaje enviado con éxito.",
-                    subMessage: "Nos pondremos en contacto contigo en breve.",
-                    modalOpen: true
-                });
-            }
-        } catch (err) {
-            setStatus({
-                success: false,
-                message: "Ups! Algo salió mal, intentalo más tarde.",
-            });
-        } finally {
-            setFormDetails(formInitialState);
-            setIsFetching(false);
-            setTimeout(() => {
-                setStatus({
-                    success: false,
-                    message: "",
-                    subMessage: "",
-                    modalOpen: false
-                });
-            }, 4000);
-        }
+    const handleButtonClick = (url) => {
+        window.open(url, '_blank');
     };
 
     return (
         <ContactContainer id={id}>
             <ContactWrapper>
                 <ContactCol>
-                    <ConctactTitle>Contactame</ConctactTitle>
-                    <Form onSubmit={handleSubmit}>
-                        <Input
-                            type="text"
-                            placeholder="Nombre"
-                            name="name"
-                            autoComplete="new-asd"
-                            value={formDetails.name}
-                            onChange={(e) =>
-                                onFormUpdate("name", e.target.value)
-                            }
-                            required
-                        />
-                        <Input
-                            type="email"
-                            placeholder="Email"
-                            name="email"
-                            autoComplete="new-password"
-                            value={formDetails.email}
-                            onChange={(e) =>
-                                onFormUpdate("email", e.target.value)
-                            }
-                            required
-                        />
-                        <Input
-                            placeholder="Número de celular"
-                            name="phoneNumber"
-                            autoComplete="new-passwo"
-                            value={formDetails.phoneNumber}
-                            onChange={(e) =>
-                                onFormUpdate("phoneNumber", e.target.value)
-                            }
-                            required
-                        />
-                        <TextAreaInput
-                            cols={30}
-                            rows={10}
-                            placeholder="Aquí deje su mensaje..."
-                            value={formDetails.message}
-                            onChange={(e) =>
-                                onFormUpdate("message", e.target.value)
-                            }
-                            required
-                        />
-                        <SubmitButton $primary $disabled={isFetching} onClick={handleSubmit}>
-                            {isFetching ? "Enviando..." : "Enviar"}
-                        </SubmitButton>
-                    </Form>
+                    <ConctactTitle>Hacé valer tus derechos</ConctactTitle>
+                    <ConctactDescription>
+                        Contactame a través de mis redes
+                    </ConctactDescription>
+                    {SOCIAL_MEDIA.map(item =>
+                        <SocialMediaContainer onClick={() => handleButtonClick(item.url)} key={item.title}>
+                            {item.icon}
+                            <SocialMediaTitle>{item.title}</SocialMediaTitle>
+                        </SocialMediaContainer>
+                    )}
                 </ContactCol>
                 <ImageCol>
                     <ImageContainer>
@@ -135,11 +70,6 @@ const ContactSection = ({ id }) => {
                     </ImageContainer>
                 </ImageCol>
             </ContactWrapper>
-            <Modal isOpen={status.modalOpen}>
-                <ModalImage src={mailSuccess} />
-                <ModalMessage>Mensaje enviado con éxito.</ModalMessage>
-                <ModalSubMessage>Nos pondremos en contacto contigo pronto.</ModalSubMessage>
-            </Modal>
         </ContactContainer>
     );
 };
