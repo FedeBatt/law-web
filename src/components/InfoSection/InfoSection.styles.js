@@ -25,8 +25,12 @@ export const InfoWrapper = styled.div`
     padding: 0 24px;
     justify-content: center;
 
+    @media screen and (max-width: 768px) {
+        transform: scale(0.9);
+    }
+
     @media screen and (max-width: 375px) {
-        transform: scale(0.85);
+        transform: scale(0.80);
     }
 `;
 
@@ -55,6 +59,10 @@ export const TextWrapper = styled.div`
     max-width: 540px;
     padding-top: 0;
     padding-bottom: 60px;
+
+    @media screen and (max-width: 420px) {
+        padding-bottom: 0;
+    }
 `;
 
 export const TopLine = styled.p`

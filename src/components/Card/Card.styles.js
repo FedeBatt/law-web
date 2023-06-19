@@ -8,11 +8,12 @@ export const CardContainer = styled.div`
     background-color: #fff;
     display: flex;
     flex-direction: column;
-    min-height: 350px;
+    height: 380px;
     width: 320px;
     
     @media screen and (max-width: 768px) {
-        min-height: 480px;
+        height: 350px;
+        margin: 0 12px;
     }
 `;
 
@@ -29,8 +30,6 @@ export const CardImage = styled.img`
     height: 150px;
     width: 150px;
     object-fit: cover;
-    // border-radius: 50%;
-    // border: 4px solid #fff;
 `;
 
 export const Overlay = styled.div`
@@ -79,6 +78,9 @@ export const Title = styled.p`
     font-weight: 600;
     color: #333;
 
+    @media screen and (max-width: 768px) {
+        font-size: 14px;
+    }
    
 `;
 
@@ -90,7 +92,7 @@ export const Text = styled.p`
     margin-bottom: 12px;
 
     @media screen and (max-width: 768px) {
-        font-size: 14px;
+        font-size: 12px;
     }
 `;
 

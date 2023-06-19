@@ -10,10 +10,11 @@ dotenv.config()
 app.use(cors());
 app.use(json());
 app.use("/", router);
-app.listen(3000, () => console.log("Server Running"));
+app.listen(222, () => console.log("Server Running", router));
 
 const contactEmail = createTransport({
-    service: "gmail", 
+    host: 'smtp.gmail.com',
+    port: 465,
     secure: true,
     auth: {
         user: process.env.VITE_EMAIL_USER,

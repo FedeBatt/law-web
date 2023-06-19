@@ -84,6 +84,10 @@ export const SocialMediaContainer = styled.button`
         background-color: #CEB69F;  
         border: 1px solid #CEB69F;
     }
+
+    @media screen and (max-width: 420px) {
+        width: 100%;
+    }
 `
 
 export const SocialMediaTitle = styled.p`

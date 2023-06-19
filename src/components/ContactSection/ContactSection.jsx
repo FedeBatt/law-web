@@ -40,7 +40,7 @@ export const SOCIAL_MEDIA = [
         icon: <IconInstagram />,
         url: 'https://www.instagram.com/abogada.formini/?igshid=MmJiY2I4NDBkZg%3D%3D'
     },
-    
+
 ]
 
 const ContactSection = ({ id }) => {
@@ -59,7 +59,7 @@ const ContactSection = ({ id }) => {
                     </ConctactDescription>
                     {SOCIAL_MEDIA.map(item =>
                         <SocialMediaContainer onClick={() => handleButtonClick(item.url)} key={item.title}>
-                            {item.icon}
+                            <div>{item.icon}</div>
                             <SocialMediaTitle>{item.title}</SocialMediaTitle>
                         </SocialMediaContainer>
                     )}
